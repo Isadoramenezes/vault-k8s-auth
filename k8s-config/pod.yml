@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: debug
+  name: debug
+spec:
+  containers:
+  - image: nginx
+    name: debug
+    resources: {}
+    volumeMounts:
+      - name: vol
+        mountPath: /var/run/secrets/kubernetes.io/serviceaccount/token
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: vol
+      secret:
+        secretName: linuxtips-vault
+status: {}
+
