@@ -132,9 +132,7 @@ kubectl exec -it debug -- bash
 
 export VAULT_ADDR=http://$VAULT_IP:8200
 
-SA_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-
-vault write auth/kubernetes/login role=linuxtips jwt=$SA_TOKEN
+cat /var/run/secrets/kubernetes.io/serviceaccount/token/token
 
 curl -s -kubectl --request POST --header "Content-Type: application/json" --data '{"jwt": "", "role": "linuxtips"}' http://$VAULT_IP:8200/v1/auth/kubernetes/login
 
