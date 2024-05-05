@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: linuxtips-vault
+  annotations:
+    kubernetes.io/service-account.name: linuxtips-vault
+type: kubernetes.io/service-account-token
