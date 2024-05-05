@@ -97,7 +97,7 @@ path "kv/segredos/segredo-dois" {
 vault auth enable kubernetes
 export JWT_TOKEN=
 export CA_CRT=
-export K8S_HOST=https://172.31.61.74:6443
+export K8S_HOST=
 
 ## Pra pegar o JWT e a CA
 kubectl -n default get secret linuxtips-vault -o json | jq -r .data.token | base64 --decode
